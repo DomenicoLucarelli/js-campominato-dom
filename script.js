@@ -3,7 +3,9 @@ let startEl = document.getElementById('start');
 let innerContainerEl = document.getElementById('inner-container');
 
 startEl.addEventListener('click', function(){
+
     innerContainerEl.style.display = 'flex';
+
     let difficultEl = document.getElementById('difficult').value;
     
     if(difficultEl == 'easy'){
@@ -51,6 +53,7 @@ function createAndColorToggleSquare (numMin,numMax,container,numRow,numCol){
         let squareEl = document.createElement('div');
 
         squareEl.classList.add('square');
+        
         squareEl.style.width = `calc(100% / ${numRow})`
 
         squareEl.style.height = `calc(100% / ${numCol})`
@@ -61,15 +64,19 @@ function createAndColorToggleSquare (numMin,numMax,container,numRow,numCol){
         
         squareEl.addEventListener('click', function(){
 
+            let squareArray = document.querySelectorAll('.square')
+
             if( array.includes(i)){
-
                 
+                for(j = 0; j < squareArray.length; j++){
+    
+                    if(array.includes(parseInt(squareArray[j].innerHTML)))
 
-                squareEl.classList.add('bomb');
+                    squareArray[j].classList.add('bomb')
+                }
+               
 
-                console.log(squareEl.innerHTML);
-
-                resultEl.innerHTML = (`il tuo punteggio è: ${positiveClick}`)
+                resultEl.innerHTML = (`HAI PERSO, il tuo punteggio è: ${positiveClick}`)
 
                 resultEl.style.display = 'inline-block'
 
@@ -108,6 +115,12 @@ function createAndColorToggleSquare (numMin,numMax,container,numRow,numCol){
     
     
 }
+
+
+
+
+
+
 
 function generateNumbers(min, max){
 
