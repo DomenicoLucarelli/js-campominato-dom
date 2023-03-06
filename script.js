@@ -37,8 +37,15 @@ startEl.addEventListener('click', function(){
  * @returns {any}
  */
 function createAndColorToggleSquare (numMin,numMax,container,numRow,numCol){
-    let array = generateNumbers(numMin,numMax)
-    console.log(array)
+
+    let array = generateNumbers(numMin,numMax);
+
+    console.log(array);
+
+    let positiveClick = 0
+
+    let resultEl = document.getElementById ('result');
+
     for(let i = numMin ; i <= numMax ; i++){
 
         let squareEl = document.createElement('div');
@@ -50,19 +57,50 @@ function createAndColorToggleSquare (numMin,numMax,container,numRow,numCol){
 
         squareEl.innerHTML = i;
 
-        
+       
         
         squareEl.addEventListener('click', function(){
 
             if( array.includes(i)){
-                squareEl.classList.toggle('bomb')
-                console.log(squareEl.innerHTML)
+
+                
+
+                squareEl.classList.add('bomb');
+
+                console.log(squareEl.innerHTML);
+
+                resultEl.innerHTML = (`il tuo punteggio è: ${positiveClick}`)
+
+                resultEl.style.display = 'inline-block'
+
+                container.classList.add('pointer-event')
+
+                
+
+
+
             }else{
 
-                squareEl.classList.toggle('active')
-                console.log(squareEl.innerHTML)
+                squareEl.classList.add('active');
+
+                console.log(squareEl.innerHTML);
+
+                positiveClick++
+
+                if(positiveClick == (numMax - 16 )){
+
+                    container.classList.add('pointer-event');
+
+                    resultEl.innerHTML = (`HAI VINTO, il tuo punteggio è: ${positiveClick}`)
+                }
+
+                
+
             }
+
+            
         })
+
 
         container.append(squareEl);
 
