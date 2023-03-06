@@ -37,7 +37,8 @@ startEl.addEventListener('click', function(){
  * @returns {any}
  */
 function createAndColorToggleSquare (numMin,numMax,container,numRow,numCol){
-
+    let array = generateNumbers(numMin,numMax)
+    console.log(array)
     for(let i = numMin ; i <= numMax ; i++){
 
         let squareEl = document.createElement('div');
@@ -48,11 +49,19 @@ function createAndColorToggleSquare (numMin,numMax,container,numRow,numCol){
         squareEl.style.height = `calc(100% / ${numCol})`
 
         squareEl.innerHTML = i;
+
+        
         
         squareEl.addEventListener('click', function(){
 
-            squareEl.classList.toggle('active')
-            console.log(squareEl.innerHTML)
+            if( array.includes(i)){
+                squareEl.classList.toggle('bomb')
+                console.log(squareEl.innerHTML)
+            }else{
+
+                squareEl.classList.toggle('active')
+                console.log(squareEl.innerHTML)
+            }
         })
 
         container.append(squareEl);
@@ -61,3 +70,23 @@ function createAndColorToggleSquare (numMin,numMax,container,numRow,numCol){
     
     
 }
+
+function generateNumbers(min, max){
+
+    let numbers = [];
+    let i = 0;
+    let n;
+    
+    do{ 
+        do{
+            n = Math.floor(Math.random() * (max - min + 1) + min)
+    
+            }while(numbers.includes(n))
+    
+        numbers.push(n);
+    
+        i++;
+    }while(i < 16);
+    
+    return numbers
+    }

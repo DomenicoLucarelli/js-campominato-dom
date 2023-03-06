@@ -70,6 +70,7 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 footer{
@@ -80,5 +81,10 @@ footer{
 
 .active{
     background-color: orange;
+    cursor: pointer;
+}
+
+.bomb{
+    background-color: red;
     cursor: pointer;
 }
