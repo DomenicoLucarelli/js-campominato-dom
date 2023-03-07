@@ -5,20 +5,21 @@ let innerContainerEl = document.getElementById('inner-container');
 startEl.addEventListener('click', function(){
 
     innerContainerEl.style.display = 'flex';
+    innerContainerEl.innerHTML=''
 
     let difficultEl = document.getElementById('difficult').value;
     
     if(difficultEl == 'easy'){
 
-        createAndColorToggleSquare(1,100,innerContainerEl,10,10)
+        createAndColorSquare(1,100,innerContainerEl,10,10)
 
     }else if(difficultEl == 'medium'){
 
-        createAndColorToggleSquare(1,81,innerContainerEl,9,9)
+        createAndColorSquare(1,81,innerContainerEl,9,9)
 
     }else{
 
-        createAndColorToggleSquare(1,49,innerContainerEl,7,7)
+        createAndColorSquare(1,49,innerContainerEl,7,7)
 
     }
 })
@@ -38,7 +39,7 @@ startEl.addEventListener('click', function(){
  * @param {any} numCol
  * @returns {any}
  */
-function createAndColorToggleSquare (numMin,numMax,container,numRow,numCol){
+function createAndColorSquare (numMin,numMax,container,numRow,numCol){
 
     let array = generateNumbers(numMin,numMax);
 
