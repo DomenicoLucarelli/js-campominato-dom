@@ -5,7 +5,10 @@ let innerContainerEl = document.getElementById('inner-container');
 startEl.addEventListener('click', function(){
 
     innerContainerEl.style.display = 'flex';
+
     innerContainerEl.innerHTML=''
+
+    innerContainerEl.classList.remove('pointer-event')
 
     let difficultEl = document.getElementById('difficult').value;
     
@@ -82,7 +85,7 @@ function createAndColorSquare (numMin,numMax,container,numRow,numCol){
 
                 resultEl.style.display = 'inline-block'
 
-                container.classList.add('pointer-event')
+                innerContainerEl.classList.add('pointer-event')
 
                 
 
@@ -99,7 +102,8 @@ function createAndColorSquare (numMin,numMax,container,numRow,numCol){
 
                 if(positiveClick == (numMax - 16 )){
 
-                    container.classList.add('pointer-event');
+                    innerContainerEl.classList.add('pointer-event')
+
 
                     resultEl.innerHTML = (`HAI VINTO, il tuo punteggio è: ${positiveClick}`)
                 }
