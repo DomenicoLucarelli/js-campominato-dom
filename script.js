@@ -73,6 +73,7 @@ function createAndColorToggleSquare (numMin,numMax,container,numRow,numCol){
                     if(array.includes(parseInt(squareArray[j].innerHTML)))
 
                     squareArray[j].classList.add('bomb')
+                    
                 }
                
 
@@ -89,6 +90,7 @@ function createAndColorToggleSquare (numMin,numMax,container,numRow,numCol){
             }else{
 
                 squareEl.classList.add('active');
+                squareEl.classList.add('pointer-event')
 
                 console.log(squareEl.innerHTML);
 
